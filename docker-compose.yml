@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: socialhub-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: socialhub
+      POSTGRES_USER: socialhub
+      POSTGRES_PASSWORD: socialhub
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
